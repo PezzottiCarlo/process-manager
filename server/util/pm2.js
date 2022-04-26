@@ -22,6 +22,7 @@ class PM2 {
     }
 
     async getList() {
+        return require("./pm2-example.json")
         let list = await new Promise((resolve, reject) => {
             pm2.list((err, list) => {
                 if (err) {
@@ -40,7 +41,7 @@ class PM2 {
         for (let i = 0; i < list.length; i++) {
             let item = list[i];
             let { pid, name, pm_id } = item;
-            let { node_version, restart_time, pm_uptime, pm_cwd } = item.pm2_env;
+            let { node_version, restart_time, pm_uptime, pm_cwd} = item.pm2_env;
             result.push({
                 pid,
                 name,
