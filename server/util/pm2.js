@@ -1,9 +1,10 @@
 const { exec } = require("child_process");
+const fs = require("fs");
 const pm2 = require("pm2");
 
 class PM2 {
     constructor() {
-        if(!this.init()) {
+        if (!this.init()) {
             throw new Error("PM2 not connected");
         }
     }
@@ -29,7 +30,7 @@ class PM2 {
                 resolve(list);
             });
         })
-        if(list.length > 0) {
+        if (list.length > 0) {
             return list;
         }
         return [];
@@ -66,43 +67,66 @@ class PM2 {
 
     //refact using programmatic api
     async stop(pm_id) {
-        return await new Promise((resolve, reject) => { pm2.stop(pm_id, (err, proc) => {
-            if (err) {
-                reject(err);
-            }
-            resolve(true);
-        })})
+        return await new Promise((resolve, reject) => {
+            pm2.stop(pm_id, (err, proc) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(true);
+            })
+        })
     }
 
     async start(path) {
-        return await new Promise((resolve, reject) => { pm2.start(path, (err, proc) => {
-            if (err) {
-                reject(err);
-            }
-            resolve(true);
-        })})
+        return await new Promise((resolve, reject) => {
+            pm2.start(path, (err, proc) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(true);
+            })
+        })
     }
 
     async restart(pm_id) {
-        return await new Promise((resolve, reject) => { pm2.restart(pm_id, (err, proc) => {
-            if (err) {
-                reject(err);
-            }
-            resolve(true);
-        })})
+        return await new Promise((resolve, reject) => {
+            pm2.restart(pm_id, (err, proc) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(true);
+            })
+        })
     }
 
     async delete(pm_id) {
-        return await new Promise((resolve, reject) => { pm2.delete(pm_id, (err, proc) => {
-            if (err) {
-                reject(err);
-            }
-            resolve(true);
-        })})
+        return await new Promise((resolve, reject) => {
+            pm2.delete(pm_id, (err, proc) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(true);
+            })
+        })
     }
 
-    monit(pm_id) {
-        
+    //to be refactored when pm2 api when will be better documented
+    async monit(pm_name, length) {
+        let result = await new Promise((resolve, reject) => {
+            pm2.reloadLogs((err)=>{
+                if (err) {
+                    reject(err);
+                }
+                resolve(true);
+            })
+        })
+        if (result) {
+            let path = `${process.env.HOME}/.pm2/logs/${pm_name}-out.log`;
+            let lines = fs.readFileSync(path, 'utf8').split('\n');
+            return lines.slice(-length);
+        }else{
+            return [];
+        }
     }
 }
 
