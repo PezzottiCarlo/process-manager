@@ -8,6 +8,7 @@
     color: white;
     border-radius: 0.5rem;
     height: 5rem;
+    container-name: process;
 }
 .process div{
     display: flex;
@@ -65,4 +66,10 @@
 
 .stop{
     color: #c68cfc;
+}
+
+@media only screen and (max-width: 900px) {
+    .collapsible{
+        display: none !important;
+    }
 }

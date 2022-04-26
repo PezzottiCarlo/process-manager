@@ -22,6 +22,7 @@ class PM2 {
     }
 
     async getList() {
+        return require("./pm2-example.json");
         let list = await new Promise((resolve, reject) => {
             pm2.list((err, list) => {
                 if (err) {
