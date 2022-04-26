@@ -37,4 +37,32 @@
 .icon{
     cursor: pointer;
     font-size: 2rem;
+    display: flex !important;
+    flex-direction: column;
+    margin: auto;
+}
+
+.icon:hover{
+    background-color: hsla(0,0%,100%,.1);
+}
+
+.icon:last-child:hover{
+    border-radius:0 0.5rem 0.5rem 0;
+    background-color: hsla(0,0%,100%,.1);
+}
+
+.icon svg{
+    height: 100%;
+}
+
+.monit{
+    color: #97e9f7;
+}
+
+.restart{
+    color: #7daafe;
+}
+
+.stop{
+    color: #c68cfc;
 }

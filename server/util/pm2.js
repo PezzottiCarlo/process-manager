@@ -22,7 +22,6 @@ class PM2 {
     }
 
     async getList() {
-        return require("./pm2-example.json")
         let list = await new Promise((resolve, reject) => {
             pm2.list((err, list) => {
                 if (err) {
@@ -50,7 +49,7 @@ class PM2 {
                 restart_time,
                 pm_uptime,
                 pm_cwd,
-                recommendedName: this.recommendedName(pm_cwd, "Projects")
+                recommendedName: this.recommendedName(pm_cwd, "webserver")
             })
         }
         return result;
