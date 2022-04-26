@@ -6,7 +6,7 @@ const config = require('./config/config.json');
 const app = express();
 app.use(express.json());
 
-app.use(express.static('build'));
+app.use(express.static('../build'));
 
 app.get('/list', async (req, res) => {
     let list = await pm2.extractInfo(await pm2.getList())
