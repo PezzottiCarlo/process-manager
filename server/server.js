@@ -3,6 +3,5 @@ let pm2 = new PM2();
 
 async function init() {
     let list = await pm2.extractInfo(await pm2.getList());
-    console.log(list);
 }
 init()
