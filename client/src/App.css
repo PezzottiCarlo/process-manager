@@ -2,4 +2,20 @@
   background-color: #282c34;
   height: 100vh;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.process-container{
+  min-width: 75%;
+  margin-bottom: 1rem;
+}
+
+/* in mobile screen */
+@media only screen and (max-width: 600px) {
+  .process-container{
+    min-width: 100%;
+  }
 }

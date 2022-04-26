@@ -1,5 +1,5 @@
 import './App.css';
-import { useState,useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import Process from './components/Process/Process';
 
 function App() {
@@ -14,13 +14,17 @@ function App() {
       setProcesses(data);
     }
     fetchData()
-  },[])
+  }, [])
 
   return (
     <div className="App">
       {
-        processes.map((process,index) => {
-          return <Process process={process} key={index}/>
+        processes.map((process, index) => {
+          return (
+            <div className="process-container">
+              <Process process={process} key={index} />
+            </div>
+          )
         })
       }
     </div>

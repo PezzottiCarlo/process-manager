@@ -1,0 +1,40 @@
+.process{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: hsla(0,0%,100%,.05);
+    color: white;
+    border-radius: 0.5rem;
+    height: 5rem;
+}
+.process div{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    height: 100%;
+}
+
+/* firt div in process */
+.process div:first-child{
+    margin-left: 1rem;
+}
+
+.big{
+    font-weight: bold;
+}
+
+.medium{
+    width:25% !important;
+}
+
+.small{
+    width:10% !important;
+}
+
+.icon{
+    cursor: pointer;
+    font-size: 2rem;
+}
