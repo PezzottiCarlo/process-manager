@@ -65,40 +65,44 @@ class PM2 {
     }
 
     //refact using programmatic api
-    stop(pm_id) {
-        let { err, stdout, stderr } = exec('pm2 stop ' + pm_id);
-        if (err) {
-            return err;
-        }
-        return true;
+    async stop(pm_id) {
+        return await new Promise((resolve, reject) => { pm2.stop(pm_id, (err, proc) => {
+            if (err) {
+                reject(err);
+            }
+            resolve(true);
+        })})
     }
 
-    start(pm_id) {
-        let { err, stdout, stderr } = exec('pm2 start ' + pm_id);
-        if (err) {
-            return err;
-        }
-        return true;
+    async start(path) {
+        return await new Promise((resolve, reject) => { pm2.start(path, (err, proc) => {
+            if (err) {
+                reject(err);
+            }
+            resolve(true);
+        })})
     }
 
-    restart(pm_id) {
-        let { err, stdout, stderr } = exec('pm2 restart ' + pm_id);
-        if (err) {
-            return err;
-        }
-        return true;
+    async restart(pm_id) {
+        return await new Promise((resolve, reject) => { pm2.restart(pm_id, (err, proc) => {
+            if (err) {
+                reject(err);
+            }
+            resolve(true);
+        })})
     }
 
-    delete(pm_id) {
-        let { err, stdout, stderr } = exec('pm2 delete ' + pm_id);
-        if (err) {
-            return err;
-        }
-        return true;
+    async delete(pm_id) {
+        return await new Promise((resolve, reject) => { pm2.delete(pm_id, (err, proc) => {
+            if (err) {
+                reject(err);
+            }
+            resolve(true);
+        })})
     }
 
     monit(pm_id) {
-
+        
     }
 }
 
