@@ -12,5 +12,28 @@ class Util {
         }
         return Math.floor(diff / 86400000) + "d";
     }
+
+    static async restart(pm_id) {
+        let res = await fetch(`restart`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ pm_id }),
+        })
+        return await res.json();
+    }
+
+    static async stop(pm_id) {
+        let res = await fetch(`stop`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ pm_id }),
+        })
+        return await res.json();
+    }
+
+    static async monit(pm_name, length) {
+        let res = await fetch(`monit/${pm_name}/${length}`)
+        return await res.json();
+    }
 }
 export default Util;
