@@ -1,13 +1,9 @@
 import "./Process.css";
 import Util from "./util.js";
-import { useState, useEffect } from "react";
 import { FiMonitor, FiPower, FiRotateCcw, FiEye, FiEyeOff } from "react-icons/fi";
 
 
-const Process = (param) => {
-
-    const [process, setProcess] = useState(param.process);
-
+const Process = ({process}) => {
 
     return (
         <div className="process">
