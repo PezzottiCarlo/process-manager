@@ -41,7 +41,7 @@ class PM2 {
         for (let i = 0; i < list.length; i++) {
             let item = list[i];
             let { pid, name, pm_id } = item;
-            let { node_version, restart_time, pm_uptime, pm_cwd,watch} = item.pm2_env;
+            let { node_version, restart_time, pm_uptime, pm_cwd,watch,status} = item.pm2_env;
             result.push({
                 pid,
                 name,
@@ -51,7 +51,8 @@ class PM2 {
                 pm_uptime,
                 pm_cwd,
                 recommendedName: this.recommendedName(pm_cwd, "webserver"),
-                watch
+                watch,
+                status
             })
         }
         return result;

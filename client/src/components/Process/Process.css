@@ -68,6 +68,14 @@
     color: #c68cfc;
 }
 
+.active{
+    color: #98ff83;
+}
+
+.inactive{
+    color: #ff8c8c;
+}
+
 @media only screen and (max-width: 900px) {
     .collapsible{
         display: none !important;

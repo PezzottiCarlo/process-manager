@@ -10,7 +10,7 @@ const Process = (param) => {
 
     return (
         <div className="process">
-            <div className="process-name big">{process.name}</div>
+            <div className={`process-name big ${(process.status === "online") ? "active" : "inactive"}`}>{process.name}</div>
             <div className="process-uptime medium">{Util.milliToTime(process.pm_uptime)}</div>
             <div className="process-uptime small"><FiRotateCcw />{process.restart_time}</div>
             <div className="process-watch small">{process.watch ? (<FiEye />) : (<FiEyeOff />)}</div>
