@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import Process from './components/Process/Process';
 import { FiSearch } from 'react-icons/fi'
 
@@ -35,7 +35,6 @@ function App() {
     <div className="App">
       <div className="process-manage">
         <div className="process-bar">
-          <div className="process-bar-title">Processes Manager</div>
           <div className="process-bar-search">
             <input value={filter} onChange={filerChange} type="text" placeholder="Search" />
           </div>
@@ -45,7 +44,7 @@ function App() {
             filteredData().map((process, index) => {
               return (
                 <div className="process-container">
-                  <Process process={process}/>
+                  <Process process={process} />
                 </div>
               )
             })

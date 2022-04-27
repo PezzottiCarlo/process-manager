@@ -5,8 +5,6 @@
   color: #cdd9e5;
 }
 
-
-
 .process-manage {
   display: flex;
   flex-direction: column;
@@ -18,22 +16,15 @@
 
 .process-bar {
   width: 75%;
-  text-align: left;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-}
-
-.process-bar-title {
-  color: white;
-  font-size: 2rem;
+  flex-direction: column;
+  margin-bottom: 2rem;
 }
 
 .process-bar-search {
   height: 2rem;
-  width: 20rem;
+  width: calc(100% - 1rem - 2px);
+  float: left;
 }
 
 .process-bar-search input {
@@ -43,7 +34,8 @@
   border-radius: .5rem;
   background-color: rgba(0, 0, 0, 0.1);
   color: #cdd9e5;
-  width: 100%
+  width: 100%;
+  padding: 0.5rem;
 }
 
 
