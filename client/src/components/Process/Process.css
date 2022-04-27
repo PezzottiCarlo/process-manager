@@ -8,7 +8,6 @@
     color: white;
     border-radius: 0.5rem;
     height: 5rem;
-    container-name: process;
 }
 .process div{
     display: flex;
@@ -23,6 +22,14 @@
     margin-left: 1rem;
 }
 
+.process div:last-child{
+    margin-right: 1rem;
+}
+
+.process div:not(:first-child){
+    justify-content: center;
+}
+
 .big{
     font-weight: bold;
 }
@@ -35,6 +42,10 @@
     width:10% !important;
 }
 
+.process-watch{
+    margin-right: 1rem;
+}
+
 .icon{
     cursor: pointer;
     font-size: 2rem;
@@ -44,11 +55,6 @@
 }
 
 .icon:hover{
-    background-color: hsla(0,0%,100%,.1);
-}
-
-.icon:last-child:hover{
-    border-radius:0 0.5rem 0.5rem 0;
     background-color: hsla(0,0%,100%,.1);
 }
 
@@ -77,6 +83,12 @@
 }
 
 @media only screen and (max-width: 900px) {
+
+    .big{
+        font-weight: bold;
+        width: 50% !important;
+    }
+
     .collapsible{
         display: none !important;
     }
