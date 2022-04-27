@@ -27,8 +27,9 @@ const Process = ({ process }) => {
     }
 
     const monit = async (pm_name, length) => {
-        if(showLog)
+        if(showLog){
             return setShowLog(false);
+        }
         let monit = await Util.monit(pm_name, length);
         if (monit) {
             console.log(monit);
@@ -45,7 +46,7 @@ const Process = ({ process }) => {
                 <div className="process-uptime small">{Util.milliToTime(process.pm_uptime)}</div>
                 <div className="process-uptime small"><FiRotateCcw />{process.restart_time}</div>
                 <div className="process-watch small">{process.watch ? (<FiEye />) : (<FiEyeOff />)}</div>
-                <div className="process-monit collapsible icon small monit" onClick={() => { monit(process.name, 5) }}><FiMonitor /></div>
+                <div className="process-monit collapsible icon small monit" onClick={() => { monit(process.name, 15) }}><FiMonitor /></div>
                 <div className="process-restart  collapsible icon small restart" onClick={() => { restart(process.pm_id) }}><FiRotateCcw /></div>
                 <div className="process-stop  collapsible icon small stop" onClick={() => { stop(process.pm_id) }}><FiPower /></div>
             </div>
