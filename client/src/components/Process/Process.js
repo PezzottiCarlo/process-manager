@@ -46,7 +46,7 @@ const Process = ({ process }) => {
             clearInterval(updateMonit);
         } else {
             monit(pm_name, length);
-            updateMonit = setInterval(() => monit(pm_name, length), length);
+            updateMonit = setInterval(() => monit(pm_name, length), 1000);
         }
     }
 
