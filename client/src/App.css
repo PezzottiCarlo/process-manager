@@ -1,8 +1,8 @@
 .App {
-  background-color: #282c34;
+  background-color: var(--primary-color);
   height: 100vh;
   width: 100%;
-  color: #cdd9e5;
+  color: var(--secondary-color);
 }
 
 .process-manage {
@@ -31,7 +31,7 @@
 .process-bar-search input {
   height: 2rem;
   font-size: 1.3em;
-  border: 1px solid #373e47;
+  border: 1px solid rgba(0, 0, 0, 0.15);;
   border-radius: .5rem;
   background-color: rgba(0, 0, 0, 0.1);
   color: #cdd9e5;

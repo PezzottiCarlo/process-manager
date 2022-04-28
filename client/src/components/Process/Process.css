@@ -5,7 +5,7 @@
     align-items: center;
     width: 100%;
     background-color: hsla(0,0%,100%,.05);
-    color: white;
+    color: var(--secondary-color);
     border-radius: 0.5rem;
     height: 5rem;
 }
@@ -15,8 +15,8 @@
     flex-direction: column;
     width: calc(100%-2px);
     background-color: rgba(0, 0, 0, 0.1);
-    border: 1px solid #373e47;
-    color: #cdd9e5;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    color: var(--secondary-color);
     border-radius: 0.5rem;
 }
 
