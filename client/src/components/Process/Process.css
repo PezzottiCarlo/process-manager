@@ -78,8 +78,24 @@
     height: 100%;
 }
 
+.small-icon{
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex !important;
+    flex-direction: column;
+    margin: auto;
+}
+
+.small-icon svg{
+    height: 100%;
+}
+
 .monit{
     color: #97e9f7;
+}
+
+.bg-green{
+    background-color: #97e9f7;
 }
 
 .restart{

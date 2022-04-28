@@ -13,11 +13,11 @@ class Util {
         return Math.floor(diff / 86400000) + "d";
     }
 
-    static async restart(pm_id) {
+    static async restart(pm_id,options = {}) {
         let res = await fetch(`restart`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ pm_id }),
+            body: JSON.stringify({pm_id,options}),
         })
         return await res.json();
     }

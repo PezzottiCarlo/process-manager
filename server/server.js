@@ -22,8 +22,8 @@ app.get('/monit/:pm_name/:length', async (req, res) => {
 })
 
 app.post('/restart', async (req, res) => {
-    let { pm_id } = req.body;
-    if((await pm2.restart(pm_id))){
+    let { pm_id, options } = req.body;
+    if((await pm2.restart(pm_id,options))){
         return res.json((await pm2.getInfo(pm_id)).pm2_env.status);
     }
     return res.send(false);

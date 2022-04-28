@@ -8,12 +8,16 @@ const Process = ({ process }) => {
 
     const [status, setStatus] = useState(process.status);
     const [showLog, setShowLog] = useState(false);
+    const [watch, setWatch] = useState(process.watch);
     const [logs, setLogs] = useState([]);
 
-    const restart = async (pm_id) => {
+    const restart = async (pm_id,options = {}) => {
         setStatus("changing");
-        let status = await Util.restart(pm_id);
+        let status = await Util.restart(pm_id,options);
         if (status) {
+            if(options.watch || !options.watch){
+                setWatch(!watch);
+            }
             setStatus(status);
         }
     }
@@ -45,7 +49,7 @@ const Process = ({ process }) => {
                 <div className={`process-name big ${status}`}>{process.name}</div>
                 <div className="process-uptime small">{Util.milliToTime(process.pm_uptime)}</div>
                 <div className="process-uptime small"><FiRotateCcw />{process.restart_time}</div>
-                <div className="process-watch small">{process.watch ? (<FiEye />) : (<FiEyeOff />)}</div>
+                <div className="process-watch small" onClick={() => { restart(process.pm_id,{watch:!watch}) }}>{watch ? (<FiEye className="small-icon"/>) : (<FiEyeOff className="small-icon" small-/>)}</div>
                 <div className="process-monit collapsible icon small monit" onClick={() => { monit(process.name, 15) }}><FiMonitor /></div>
                 <div className="process-restart  collapsible icon small restart" onClick={() => { restart(process.pm_id) }}><FiRotateCcw /></div>
                 <div className="process-stop  collapsible icon small stop" onClick={() => { stop(process.pm_id) }}><FiPower /></div>

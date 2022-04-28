@@ -106,7 +106,18 @@ class PM2 {
     async restart(pm_id) {
         let watch = (await this.getInfo(pm_id)).pm2_env.watch;
         return await new Promise((resolve, reject) => {
-            pm2.restart(pm_id,{watch}, (err, proc) => {
+            pm2.restart(pm_id, { watch }, (err, proc) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(true);
+            })
+        })
+    }
+
+    async restart(pm_id, options = {}) {
+        return await new Promise((resolve, reject) => {
+            pm2.restart(pm_id, options , (err, proc) => {
                 if (err) {
                     reject(err);
                 }
