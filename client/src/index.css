@@ -1,15 +1,6 @@
-@media (prefers-color-scheme: light) {
-  :root {
-    --secondary-color: #282c34;
-    --primary-color: #cdd9e5;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-color: #282c34;
-    --secondary-color: #cdd9e5;
-  }
+:root {
+  --primary-color: #282c34;
+  --secondary-color: #cdd9e5;
 }
 
 body {
