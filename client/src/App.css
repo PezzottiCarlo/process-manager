@@ -64,4 +64,10 @@
   .process-container {
     min-width: 100%;
   }
+  .process-bar {
+    width: 100%;
+  }
+  .process-list {
+    width: 100%;
+  }
 }
