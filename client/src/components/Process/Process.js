@@ -10,8 +10,8 @@ const Process = ({ process }) => {
     const [showLog, setShowLog] = useState(false);
     const [watch, setWatch] = useState(process.watch);
     const [logs, setLogs] = useState([]);
-    const [updateMonit, setUpdateMonit] = useState(false);
-   
+
+    let updateMonit;
 
     const restart = async (pm_id, options = {}) => {
         setStatus("changing");
@@ -43,11 +43,10 @@ const Process = ({ process }) => {
     const handleMonit = async (pm_name, length) => {
         if (showLog) {
             setShowLog(false);
-            console.log(updateMonit)
             clearInterval(updateMonit);
         } else {
             monit(pm_name, length);
-            setUpdateMonit(setInterval(() => monit(pm_name, length), 1000));
+            updateMonit = setInterval(() => monit(pm_name, length), 1000);
         }
     }
 
